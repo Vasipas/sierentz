@@ -35,7 +35,6 @@ export default function BasicTable(props) {
     for(let i = 0; i < arr.length; i++) {
         if(!result.includes(arr[i])) result.push(arr[i])
     }
-    console.log(result)
     return result
   }
 
@@ -73,9 +72,12 @@ export default function BasicTable(props) {
 
   const rows = data.map((row) => createData(...row))
 
+  useEffect(()=>{
+    addNewRow()
+  })
+
   return (
     <TableContainer component={Paper}>
-        {addNewRow()}
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -88,7 +90,7 @@ export default function BasicTable(props) {
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.date}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row" align="center">
@@ -131,7 +133,7 @@ export default function BasicTable(props) {
           onChange={onChangeSelectHandler}
           label="User"
         >
-            {(userList().map(item => <MenuItem value={item}>{item}</MenuItem>))}
+            {(userList().map(item => <MenuItem key={item} value={item}>{item}</MenuItem>))}
         </Select>
       </FormControl>
             </TableCell>

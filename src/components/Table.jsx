@@ -88,20 +88,18 @@ export default function BasicTable({ data }) {
             <TableCell align="center" rowSpan={2}>
               Region
             </TableCell>
-            {yearsList().map((year) => (
-              <TableCell align="center" colSpan={3}>
+            {yearsList().map((year, index) => (
+              <TableCell key={index} align="center" colSpan={3}>
                 {year}
               </TableCell>
             ))}
           </TableRow>
           <TableRow>
-            {yearsList().map((year) => {
-              return (
-                <>
-                  <TableCell align="center">XX</TableCell>
-                  <TableCell align="center">YY</TableCell>
-                  <TableCell align="center">ZZ</TableCell>
-                </>
+            {yearsList().map(year => {
+              return ([
+                  <TableCell key={year} align="center">XX</TableCell>,
+                  <TableCell key={year*2} align="center">YY</TableCell>,
+                  <TableCell key={year*3} align="center">ZZ</TableCell>]
               );
             })}
           </TableRow>
@@ -109,7 +107,7 @@ export default function BasicTable({ data }) {
         <TableBody onClick={onClickHandler}>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.region}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
