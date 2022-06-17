@@ -1,6 +1,4 @@
-import Table from "./components/Table";
-
-let testData = {
+{
   Kyivska: {
     G: {
       2017: {
@@ -112,13 +110,3 @@ let testData = {
     },
   },
 };
-
-function App() {
-  return (
-    <>
-      <Table data={testData} />
-    </>
-  );
-}
-
-export default App;
