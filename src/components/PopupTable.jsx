@@ -125,9 +125,9 @@ export default function BasicTable(props) {
             </TableCell>
             <TableCell>
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-standard-label">Age</InputLabel>
+        <InputLabel id="standard-label">User</InputLabel>
         <Select
-          labelId="demo-simple-select-standard-label"
+          labelId="standard-label"
           id="user"
           value={formData.user}
           onChange={onChangeSelectHandler}
