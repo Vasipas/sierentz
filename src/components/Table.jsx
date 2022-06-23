@@ -6,7 +6,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Popup from './Popup'
 
 export default function BasicTable({ data }) {
   function createData(
@@ -60,7 +59,7 @@ export default function BasicTable({ data }) {
           xxyyzz.push([value, release])
         }
         for (let i = 0; i < yearsCount; i++) {
-          if (year == yearsList()[i]) {
+          if (year === yearsList()[i]) {
             row.splice(i * 3, 3, ...xxyyzz)
           }
         }
@@ -73,8 +72,8 @@ export default function BasicTable({ data }) {
   const rows = renderRegions();
 
   const onClickHandler = e => {
-    if(e.target.dataset.info) {
-      window.open()
+    if(e.target.id && e.target.innerText) {
+      window.open(`/popup/${e.target.id}`, 'Popup', "toolbar=no, menubar=no")
     }
     
   }
@@ -113,24 +112,22 @@ export default function BasicTable({ data }) {
               <TableCell component="th" scope="row">
                 {row.region}
               </TableCell>
-              <TableCell data-info={row.xx2017} align="center">{!row.xx2017 ? null : (<>{row.xx2017[0]} {row.xx2017[1]}</>)}</TableCell>
-              <TableCell data-info={row.yy2017} align="center">{!row.yy2017 ? null : (<>{row.yy2017[0]} {row.yy2017[1]}</>)}</TableCell>
-              <TableCell data-info={row.zz2017} align="center">{!row.zz2017 ? null : (<>{row.zz2017[0]} {row.zz2017[1]}</>)}</TableCell>
+              <TableCell id={'xx2017'+row.region} align="center">{!row.xx2017 ? null : (<>{row.xx2017[0]} {row.xx2017[1]}</>)}</TableCell>
+              <TableCell id={'yy2017'+row.region} align="center">{!row.yy2017 ? null : (<>{row.yy2017[0]} {row.yy2017[1]}</>)}</TableCell>
+              <TableCell id={'zz2017'+row.region} align="center">{!row.zz2017 ? null : (<>{row.zz2017[0]} {row.zz2017[1]}</>)}</TableCell>
 
-              <TableCell data-info={row.xx2018} align="center">{!row.xx2018 ? null : (<>{row.xx2018[0]} {row.xx2018[1]}</>)}</TableCell>
-              <TableCell data-info={row.yy2018} align="center">{!row.yy2018 ? null : (<>{row.yy2018[0]} {row.yy2018[1]}</>)}</TableCell>
-              <TableCell data-info={row.zz2018} align="center">{!row.zz2018 ? null : (<>{row.zz2018[0]} {row.zz2018[1]}</>)}</TableCell>
+              <TableCell id={'xx2018'+row.region} align="center">{!row.xx2018 ? null : (<>{row.xx2018[0]} {row.xx2018[1]}</>)}</TableCell>
+              <TableCell id={'yy2018'+row.region} align="center">{!row.yy2018 ? null : (<>{row.yy2018[0]} {row.yy2018[1]}</>)}</TableCell>
+              <TableCell id={'zz2018'+row.region} align="center">{!row.zz2018 ? null : (<>{row.zz2018[0]} {row.zz2018[1]}</>)}</TableCell>
 
-              <TableCell data-info={row.xx2019} align="center">{!row.xx2019 ? null : (<>{row.xx2019[0]} {row.xx2019[1]}</>)}</TableCell>
-              <TableCell data-info={row.yy2019} align="center">{!row.yy2019 ? null : (<>{row.yy2019[0]} {row.yy2019[1]}</>)}</TableCell>
-              <TableCell data-info={row.zz2019} align="center">{!row.zz2019 ? null : (<>{row.zz2019[0]} {row.zz2019[1]}</>)}</TableCell>
+              <TableCell id={'xx2019'+row.region} align="center">{!row.xx2019 ? null : (<>{row.xx2019[0]} {row.xx2019[1]}</>)}</TableCell>
+              <TableCell id={'yy2019'+row.region} align="center">{!row.yy2019 ? null : (<>{row.yy2019[0]} {row.yy2019[1]}</>)}</TableCell>
+              <TableCell id={'zz2019'+row.region} align="center">{!row.zz2019 ? null : (<>{row.zz2019[0]} {row.zz2019[1]}</>)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-
-    <Popup/>
     </>
   );
 }
