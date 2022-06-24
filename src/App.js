@@ -127,22 +127,6 @@ let data = [
 function App() {
   let [cells, setCells] = useState({})
 
-  // const addRow = (cellId, cellValue) => {
-  //   let cell = cells[cellId]
-  //   if(cell) {
-  //     localStorage.setItem('cells', JSON.stringify({...cells, [cellId]: [...cell, cellValue]}))
-  //   setCells({...cells, [cellId]: [...cell, cellValue]})
-  //   } else {
-  //     localStorage.setItem('cells', JSON.stringify({...cells, [cellId]: [...data, cellValue]}))
-  //     setCells({...cells, [cellId]: [...data, cellValue]})
-  //   }
-  // }
-
-  // const showRows = (cellId) => {
-  //   return cells[cellId]
-  // }
-
-
   const addRow = (cellId, cellValue) => {
     let items = JSON.parse(localStorage.getItem('cells'))
     if(items === null) items = cells
